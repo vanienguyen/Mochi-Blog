@@ -1,0 +1,121 @@
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a style="font-size: 25px;" class="navbar-brand page-scroll" href="/">
+                    <i class="fa fa-play-circle"></i> Mochi
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <!--<li>
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>-->
+                    <li>
+                        <a class="page-scroll" href="/login">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<div id="header" class="page-header" style="text-align: center; color: black">
+    <h1>Create a Mochi account</h1>
+</div>
+<div class="form-group col-md-4"></div>
+<div id="form" class="form-group col-md-4" style="color: black">
+    <form id="signup" action="/createAccount" method="POST">
+        <div id="Name" class="form-group row">
+            <input 
+            type="text"
+            class="form-control"
+            name="fName" 
+            maxlength="50" 
+            required 
+            pattern="^[a-zA-Z .\s_-]*${1,50}" 
+            title="First name should only contain letters." 
+            placeholder="First name"/>
+        </div>
+        <div class="form-group row">     
+            <input 
+            type="text"
+            class="form-control"
+            name="lName"
+            maxlength=100 
+            required 
+            pattern="^[a-zA-Z .\s_-]*${1,100}" 
+            title="Last name should only contain letters." 
+            placeholder="Last name"/>
+        </div>
+        <div id="Email" class="form-group row">
+            <input 
+            type="email"
+            class="form-control"
+            name="email" 
+            required 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+            placeholder="Email address"/>
+        </div>
+        <div id="Password" class="form-group row">
+            <input 
+            type="password"
+            class="form-control" 
+            name="password" 
+            required 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,8}" 
+            title="Passwords must contain exactly eight characters, including uppercase, lowercase letters and numbers." 
+            placeholder="New password"
+            onchange="form.password2.pattern = this.value;" />
+        </div>
+        <div class="form-group row">
+            <input 
+            type="password"
+            class="form-control" 
+            name="password2" 
+            required 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,8}" 
+            title="Your passwords do not match. Please try again." 
+            placeholder="Confirm password" />
+        </div>
+        <div id="Username" class="form-group row">
+            <input 
+            type="text"
+            class="form-control" 
+            name="userName" 
+            required 
+            pattern="^[a-zA-Z .\s_-]*${1,50}" 
+            title="Username should only contain letters." 
+            placeholder="New username" />
+        </div>
+        <div id="Birthday" class="form-inline row">
+            <label for="birthday" class="control-label">Birthday</label>
+            <input type="number" class="form-control" style="width: 70px" name="birthday" min="1" max="31" step="1" placeholder="Day" required />
+            <input type="number" class="form-control" style="width: 80px" name="birthmonth" min="1" max="12" step="1" placeholder="Month" required />
+            <input type="number" class="form-control" style="width: 70px" name="birthyear" min="1905" max="2016" step="1" placeholder="Year" required />
+        </div>
+        <br>
+        <div id="Gender" class="form-group row">
+            <input type="radio" class="form-check-input" name="gender" id="female" value="Female" required/>
+            <label for="gender" class="control-label">Female</label>
+            <input type="radio" class="form-check-input" name="gender" id="male" value="Male" required/>
+            <label for="gender" class="control-label">Male</label>
+        </div>
+        <div id="recaptcha" class="form-group row">
+            <div class="g-recaptcha" data-sitekey="6LfkYQoUAAAAADfvg-qxp3Paz5TU6Zf8IylmSzxW"></div>
+        </div>
+        <div id="sumbit" class="form-group row">
+            <input type="submit" class="btn btn-primary" name="signup" id="signup" value="Create an account" />
+            <input type="button" class="btn btn-default" name="cancel" id="cancel" onclick="location.href='/';" value="Cancel" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+
+ <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a style="font-size: 25px;" class="navbar-brand page-scroll" href="/">
+                    <i class="fa fa-play-circle"></i> Mochi
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <!--<li>
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>-->
+                    <li>
+                        <a class="page-scroll" href="/signup">Join Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<div class="col-md-4"></div>
+<div class="col-md-1"></div>
+<div style="position: relative; top: 250px; color: black">
+<h2>Please log in</h2>
+
+<div class="col-md-4"></div>
+<div class="col-md-1"></div>
+ 
+ 
+
+<form method="post" action="/login" class="col-md-2">
+{{#if errorMsg}}
+<div class="form-group" >
+<div class="alert alert-danger" role="alert">{{errorMsg}}</div>
+</div>
+ {{/if}}
+ {{#if info}}
+<div class="form-group" >
+<div class="alert alert-info" role="alert">{{info}}</div>
+</div>
+{{/if}}
+<div class="form-group" >
+       <label>Username</label>
+       <input type="text" class="form-control" placeholder="Username" name="username">
+   </div>
+   <div class="form-group">
+       <label>Password</label>
+       <input type="password" class="form-control" placeholder="Password" name="password" >
+   </div>
+   <div class="form-group">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+   </div>
+ </form>
+ </div>

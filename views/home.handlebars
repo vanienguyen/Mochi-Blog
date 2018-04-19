@@ -1,0 +1,90 @@
+{{#if errors}}
+<div class="form-group">
+    <div class="alert alert-danger" role="alert">{{errors}}</div>
+</div>
+{{/if}}
+
+<div class="col-md-1"></div>
+<div class="col-md-1"></div>
+<div id="header" class="page-header col-md-8" style="background-color: color; border-radius: 25px;">
+    <div id="image" style="border-radius:50%; width: 200px; height:200px; background-color:{{color}}; background-image:url('{{profileImage}}'); position: relative; left: 50px; bottom: 5px ">
+        <h1 class="headerTextfont" style="position: relative; left: 150%; top: 30%; margin-right: -300%;">{{fName}} {{lName}}</h1>
+    </div>
+</div>
+<div id="profile" class="col-md-8 centerProfile">
+    <table class="table">
+        <tr>
+            <th>User Name</th>
+            <td>{{userName}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td>{{dob}}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{gender}}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{email}}</td>
+        </tr>
+        <tr>
+            <th>Occupation</th>
+            <td>{{occupation}}</td>
+        </tr>
+        <tr>
+            <th>Hobbies</th>
+            <td>{{hobbies}}</td>
+        </tr>
+    </table>
+    <input type="button" id="update" class="btn btn-default" onclick="location.href='/profile/{{userId}}';" value="Update Profile" style="display:{{display}};" />
+    <input type="button" id="delete" class="btn btn-default" onclick="confirmDelete({{userId}});" value="Delete Account" />
+</div>
+<div id="article" class="table-responsive col-md-8 centerProfile">
+    <h2>Your Articles <span class="badge" style="font-size: 15px;">{{articleCount}}</span></h2>
+    <table class="table table-hover">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {{#each article}}
+        <tr onclick="location.href='/article/{{articleId}}';">
+            <td>{{title}}</td>
+            <td>{{date}}</td>
+        </tr>
+         {{/each}}
+    </table>
+</div>
+<div id="multimedia" class="table-responsive col-md-8 centerProfile">
+    <h2>Your Multimedia <span class="badge" style="font-size: 15px;">{{mediaCount}}</span></h2>
+    <table class="table">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+        {{#each multimedia}}
+        <tr>
+            <td><a class='html5lightbox' data-group='images' href='{{route}}' title='{{title}}'>{{title}}</a></td>
+            <td>{{date}}</td>
+        </tr> 
+        {{/each}}
+    </table>
+</div>
+<div class="col-md-8 centerProfile">
+<input type="button" id="addpost" class="btn btn-default" onclick="location.href='/addpost';" value="Post new article" style="display:{{display}};"/>
+</div>
+
+<script>
+    function confirmDelete(userId){
+        var answer = confirm("Once account is deleted, you will no longer have access to this wonderful community of ours. Are you sure you want to leave Mochi? ");
+        if (answer == true){
+            location.href="/deleteAccount/" + userId;
+        }
+        return;
+    }
+</script>

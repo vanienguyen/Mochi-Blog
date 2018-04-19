@@ -1,0 +1,51 @@
+<!--
+<form action="/newArticle" method="post">
+    <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div class="field">
+        <label for="article">Article content</label>
+        <textarea id="article" name="content" rows="20" cols="100"></textarea>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+-->
+<div class="col-md-1"></div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+<form enctype="multipart/form-data" id="myForm" method="POST" action="/addPost" >
+    <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" class="form-control" size="100">
+    </div>
+    <br>
+    <div class="field">
+        <label for="article">Article content</label>
+        <textarea id="article" class="form-control" name="content" rows="100" cols="100"></textarea>
+    </div>
+    <br>
+    <div>
+        <label for="fileUpload">File Upload</label>
+        <input type="file" id="files" name="fileUpload" multiple="multiple">
+        <div id="container"></div>
+    </div>
+    <!--<div>
+        <label for="caption">Caption</label>
+        <input type="text" id="caption" name="caption" pattern="[^\s]*" required>
+    </div>-->
+    <br>
+    <input type="reset" value="Clear" class="btn btn-default">
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <input type="button" name="cancel" id="cancel" class="btn btn-default" onclick="location.href='/library';" value="Cancel" />
+  
+
+</form>
+</div>
+
+<!-- Add post textarea toolbar -->
+<script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+
+
+<!-- Add post textarea toolbar -->
+<script> CKEDITOR.replace( 'content' ); </script>

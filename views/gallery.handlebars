@@ -1,0 +1,30 @@
+
+<div class="container">
+
+<div class="col-lg-12">
+	<h1 class="headerTextfont centerTable">Image Gallery</h1>
+	<hr class="style-seven">
+</div>
+
+
+	<div class="row">
+				{{#each mediaImageSource}}
+					{{{mediaImageHTML}}}
+					{{{captionImageHTML}}}
+				{{/each}}
+
+	</div>
+    
+	<div class="col-lg-12">
+		<h1 class="headerTextfont centerTable">Video Gallery</h1>
+		<hr class="style-seven">
+	</div>
+
+	<div class="row">
+				{{#each mediaVideoSource}}
+					{{{mediaVideoHTML}}}
+					{{{captionVideoHTML}}}
+				{{/each}}		
+	</div>
+	<hr>
+</div>

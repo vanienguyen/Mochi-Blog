@@ -1,0 +1,56 @@
+{{#if errors}}
+<div class="form-group">
+    <div class="alert alert-danger" role="alert">{{errors}}</div>
+</div>
+{{/if}}
+<div class="col-md-1"></div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+<form enctype="multipart/form-data" id="myForm" method="POST"  action="/editArticle">
+    <div class="field" style="display:none">
+        <label for="articleId">Article Id</label>
+        <p>{{articleId}}</p>
+        <input type="hidden" id="articleId" name="articleId" value="{{articleId}}">
+    </div>
+    <div class="field">
+        <label for="title">Title </label>
+        <input type="text" id="title" name="title" value="{{title}}" class="form-control" size="100">
+    </div>
+    <br>
+    <div class="field">
+        <label for="article">Article content</label>
+        <textarea id="article" name="content" rows="20" cols="100">{{articleText}}</textarea>
+    </div>
+    <div>
+        <br>
+        <label for="fileUpload">File Upload</label>
+        <input type="file" id="files" name="fileUpload" multiple="multiple">
+        <br>
+        <div id="container">
+            {{#each mediaSource}}
+                <div class='fileAttachment'>
+                    <label for="caption">Caption : </label>
+                        <input type="text" id="caption" name="mediaCaptionUpdate[{{mediaId}}]" value="{{caption}}">
+                        <input type="hidden" name="mediaId[]" value="{{mediaId}}">
+                    
+                    <label for="myButton1"></label>
+                        <input type="hidden" name="mediaUpdate[{{mediaId}}]" value="keep" id="{{mediaPath}}-name-hidden">
+                        <button class="btn btn-default" onclick="change('{{mediaPath}}-name-button', '{{mediaPath}}-name-hidden')" type="button" name="{{mediaPath}}-name" value="keep" id="{{mediaPath}}-name-button">Delete</button>{{mediaPath}} <br/>
+                
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <br>
+    <input type="submit" value="Update" class="btn btn-primary">
+    <input type="button" name="cancel" id="cancel" class="btn btn-default" onclick="location.href='/article/{{articleId}}';" value="Cancel" />
+</form>
+</div>
+
+<!-- Add post textarea toolbar -->
+<script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+
+
+<!-- Add post textarea toolbar -->
+<script> CKEDITOR.replace( 'content' ); </script>

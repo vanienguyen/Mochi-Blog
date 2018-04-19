@@ -1,0 +1,28 @@
+<div class="col-md-1"></div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+<h1 class="headerTextfont centerTable">
+    Mochi Lovers
+</h1>
+<br>
+<table id="myTable" class="table table-hover centerTable tablesorter">
+    <thead class="heading">
+        <tr style="font-size: 20px; font-weight: bold">
+            <th class="centerTable">Username</th>
+            <th class="centerTable">Profile Picture</th>
+            <th class="centerTable">Number of post</th>
+        </tr>
+    </thead>
+    <tbody class="content">
+    {{#each community}}
+        <tr style="font-size: 15px;" onclick="location.href='/home/{{userId}}';">
+            <td style="font-weight: bold"><br><br>{{userName}}</td>
+            <td><img src="{{profileImage}}" style="width:100px; height: 100px;" class="img-circle"/></td>
+            <td><br><br><span class="badge" style="font-size: 15px;">{{numpost}}</span></td></tr>
+    {{/each}}
+        </tr>
+    </tbody>
+</table>
+</div>
+
+		

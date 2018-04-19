@@ -1,0 +1,59 @@
+<div class="col-md-1"></div>
+<div class="col-md-1"></div>
+<div id="header" class="page-header col-md-8" style="background-color: color; border-radius: 25px; height: 230px">
+    <div id="image" style="border-radius:50%; width: 200px; height:200px; background-color:{{color}}; background-image:url('{{profileImage}}'); position: relative; left: 50px; top: 15px;"></div>
+    <h1 class="headerTextfont" style="position: relative; left: 350px; bottom: 135px;">{{fName}} {{lName}}</h1>
+</div>
+<div id="profile">
+    <form action="/updateProfile/:userId" enctype="multipart/form-data" method="POST">
+        <div id="profileContent" class="col-md-8 centerProfile">
+            <table class="table">
+                <tr>
+                    <th>Profile Picture</th>
+                    <td><input type="file" name="profileImage" accept='image/gif, image/jpg, image/jpeg, image/png' size='2MB'/></td>
+                </tr>
+                <tr>
+                    <th>or choose a picture from the list:</th>
+                    <td>
+                        {{#each photoDisplay}}
+        
+                        <label for="defaultProfile"> <img src="/photos/{{thumbnail}}" class="img-circle" style="width: 100px; height: 100px;" /></label>
+                        <input type="radio" class="form-check-input" name="defaultProfile" value="/photos/{{photo}}"/>
+                        {{/each}}
+                    </td>
+                <tr>
+                    <th>User Name</th>
+                    <td>{{userName}}</td>
+                    <input type="hidden" id="userId" name="userId" value="{{userId}}"/>
+                </tr>
+                <tr>
+                    <th>Birthday</th>
+                    <td>{{dob}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{gender}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" id="email" class="form-control" name="email" length="100" maxlength="100" required value="{{email}}" /></td>
+                </tr>
+                <tr>
+                    <th>Occupation</th>
+                    <td><input type="text" id="occupation" class="form-control" name="occupation" length="100" maxlength="100" value="{{occupation}}" /></td>
+                </tr>
+                <tr>
+                    <th>Hobbies</th>
+                    <td><input type="text" name="hobbies" class="form-control" length="500" maxlength="500" rows="5" col="100" value="{{hobbies}}" /></td>
+                </tr>
+            </table>
+        </div>
+        <div id="buttons" class="col-md-8 centerProfile">
+            <input type="reset" name="reset" id="reset" class="btn btn-default" value="Reset"/>
+            <input type="submit" name="save" id="save" class="btn btn-primary" value="Save and Update"/>
+            <input type="button" name="cancel" id="cancel" class="btn btn-default" onclick="location.href='/home/{{userId}}';" value="Cancel" />
+        </div>
+    </form>
+</div>
+
+
